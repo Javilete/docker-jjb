@@ -1,0 +1,20 @@
+# file: install_jenkins_plugins.yml
+---
+
+- hosts: all
+  become: yes
+  become_user: root
+  tasks:
+  - name: Update permissions in plugins folder
+    file: path=/var/jenkins_home/plugins state=touch mode=0777
+
+  - name: Add plugins to jenkins
+    with_items:
+      - name: parameterized-trigger
+      - name: maven-plugin
+      - name: envinject
+      - name: throttle-concurrents
+    get_url:
+      url: https://updates.jenkins-ci.org/latest/{{ item.name }}.hpi
+      dest: /var/jenkins_home/plugins/{{ item.name }}.jpi
+      mode: 0644

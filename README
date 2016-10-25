@@ -1,0 +1,28 @@
+DOCKER IMAGE THAT CONTAINS JENKINS JOB BUILDER
+
+- This creates a docker image from specific jenkins version (2.7.1)
+- This will install ansible to do a precheck on yml files base on JJB
+- This will install jenkins job builder to generate the appropiate jobs
+
+To create the image, run:
+- docker build -t <image_tag> .
+To start the container, run: 
+- docker run -p 8080:8080 -v $(pwd):/tmp <image_tag>
+With this command you create a volume, which mounts your local files into the /tmp folder inside the container
+so any change in your localhost will be present in the container (helpful when updating yml file jobs)
+
+Once image is created, when starting the container it is neccesary to create the following:
+1. Credentials (jenkins:jenkins)
+2. Install recommended plugins
+3. Install custom plugins:
+  # Maven Integration Plugin
+  # Parameterized Trigger Plugin
+  # EnvInject Plugin
+  # Throttle Concurrent Builds Plugin
+
+Execution commands:
+Test: jenkins-jobs test -r globals:jobs >/dev/null
+Update: jenkins-jobs update -r globals:jobs/idam/am
+
+IN PROGRESS
+- Automate the whole customization of jenkins to avoid creating user and installing plugins manually.
