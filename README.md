@@ -17,3 +17,4 @@ Login using the following credentials:
 Execution commands:
 * Test: **jenkins-jobs test -r globals:jobs >/dev/null**
 * Update: **jenkins-jobs update -r globals:jobs/idam/am**
+* Delete: **jenkins-jobs delete-all**
