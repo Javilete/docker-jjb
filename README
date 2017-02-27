@@ -1,4 +1,4 @@
-DOCKER IMAGE THAT CONTAINS JENKINS JOB BUILDER
+## DOCKER IMAGE THAT CONTAINS JENKINS JOB BUILDER
 
 - This creates a docker image from specific jenkins version (2.7.1)
 - This will install ansible to do a precheck on yml files base on JJB
