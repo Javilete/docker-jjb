@@ -12,9 +12,9 @@ With this command you create a volume, which mounts your local files into the /t
 so any change in your localhost will be present in the container (helpful when updating yml file jobs)
 
 Login using the following credentials:
-Username: jenkins
-Passoword: jenkins
+* Username: jenkins
+* Passoword: jenkins
 
 Execution commands:
-Test: jenkins-jobs test -r globals:jobs >/dev/null
-Update: jenkins-jobs update -r globals:jobs/idam/am
+* Test: jenkins-jobs test -r globals:jobs >/dev/null
+* Update: jenkins-jobs update -r globals:jobs/idam/am
